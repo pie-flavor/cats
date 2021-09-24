@@ -69,10 +69,10 @@ pub fn find(conn: &Connection, cmd: CmdFind) -> Result<Vec<Cat>> {
     let fuzzy = cmd.fuzzy;
     let name_clause = cmd.name.map(|names| {
         let len = names.len();
-        if fuzzy {
+        if !fuzzy {
             params_owned.extend(names);
             format!(
-                "name IN VALUES ({})",
+                "name IN ({})",
                 iter::repeat("?").take(len).join(", ")
             )
         } else {
@@ -82,10 +82,10 @@ pub fn find(conn: &Connection, cmd: CmdFind) -> Result<Vec<Cat>> {
     });
     let breed_clause = cmd.breed.map(|breeds| {
         let len = breeds.len();
-        if fuzzy {
+        if !fuzzy {
             params_owned.extend(breeds);
             format!(
-                "breed IN VALUES ({})",
+                "breed IN ({})",
                 iter::repeat("?").take(len).join(", ")
             )
         } else {
