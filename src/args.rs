@@ -2,6 +2,9 @@
 // Clap (structopt) does not allow an argument to be both positional and named so I would need to duplicate those arguments.
 // In a real project I would do that anyway, for the ergonomics, but not necessarily as a priority.
 
+// There is no theoretical upper limit on the number of cats in the world, and even the practical one exceeds the buffer capacity of the Windows terminal.
+// To that end in a real project I would have added pagination, a result cap, compressed formatting when it's approached, and a flag to exceed it on purpose.
+
 use anyhow::{Error, Result};
 use std::ops::RangeInclusive;
 use std::str::FromStr;
