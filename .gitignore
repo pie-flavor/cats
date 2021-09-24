@@ -1,0 +1,5 @@
+/target
+cat-registry.db
+Thumbs.db
+.DS_Store
+*.bak

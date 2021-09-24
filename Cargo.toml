@@ -1,0 +1,19 @@
+[package]
+name = "cats"
+version = "0.1.0"
+edition = "2018"
+resolver = "2"
+
+[dependencies]
+itertools = "0.10.1"
+rusqlite = { version = "0.25.3", features = ["bundled"] }
+structopt = "0.3.23"
+anyhow = "1.0.44"
+serde_json = "1.0.68"
+serde = { version = "1.0.130", features = ["derive"] }
+atty = "0.2.14"
+prettytable-rs = { version = "0.8.0", default-features = false }
+
+[features]
+default = ["bundled-sqlite"]
+bundled-sqlite = ["rusqlite/bundled"]
